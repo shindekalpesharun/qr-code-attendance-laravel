@@ -47,7 +47,7 @@ class Students extends Component
         $user = User::create([
             'name' => $this->studentName,
             'email' => $this->studentEmail,
-            'is_admin' => false,
+            'user_types_id' => 4,
             'password' => bcrypt($this->studentPassword),
         ]);
 

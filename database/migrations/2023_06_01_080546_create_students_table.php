@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('gender');
             $table->string('address');
             $table->string('phone_number');
-            // $table->string('profile_image')->nullable();
+            $table->string('profile_image')->nullable();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
 

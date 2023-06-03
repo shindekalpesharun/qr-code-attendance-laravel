@@ -22,7 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'is_admin'
+        'user_types_id'
     ];
 
     /**
@@ -32,7 +32,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'email_verified_at',
-        'is_admin',
         'password',
         'remember_token',
         'created_at',

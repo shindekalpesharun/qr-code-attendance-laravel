@@ -26,7 +26,7 @@ class Signup extends Component
         $user = User::create([
             'name' => $this->name,
             'email' => $this->email,
-            'is_admin' => true,
+            'user_types_id' => 1,
             'password' => bcrypt($this->password),
         ]);
 

@@ -15,12 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->integer('is_admin')->default(0);
+            // $table->foreignId('user_type_id')->constrained('user_types');
+            $table->unsignedBigInteger('user_types_id')->unsigned()->index();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
+
+            $table->foreign('user_types_id')->references('id')->on('user_types')->onDelete('cascade');
         });
     }
 
@@ -30,5 +33,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('users');
+        Schema::dropForeign(['user_types']);
     }
 };

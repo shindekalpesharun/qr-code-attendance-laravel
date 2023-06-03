@@ -84,7 +84,7 @@ class LoginController extends Controller
 
         // Generate a new API token for the authenticated user
         $user = Auth::user();
-        if (!$user->is_admin == false) {
+        if (!$user->user_types_id == 4) {
             return response()->json(['error' => 'Invalid login credentials'], 401);
         }
         $token = $user->createToken('my-app-token')->plainTextToken;
