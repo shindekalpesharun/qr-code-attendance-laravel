@@ -35,7 +35,7 @@ class AboutusController extends Controller
      */
     public function show()
     {
-        return view('about-us');
+        return view('web.about.about');
     }
 
     /**

@@ -22,7 +22,7 @@
                     </li> --}}
                     @endauth
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/about-us">About us</a>
+                        <a class="nav-link active" aria-current="page" href="/about">About us</a>
                     </li>
                 </ul>
                 @auth

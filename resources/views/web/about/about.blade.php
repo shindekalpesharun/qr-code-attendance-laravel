@@ -2,6 +2,6 @@
 
 @section('content')
 
-@livewire('about-us')
+@livewire('about.about')
 
 @stop

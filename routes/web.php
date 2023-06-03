@@ -41,4 +41,4 @@ Route::get('/signup', [SignupController::class, 'index']);
 Route::get('/login', [LoginController::class, 'show'])->name('login');
 
 // about us
-Route::get('/about-us', [AboutusController::class, 'show'])->name('aboutus');
+Route::get('/about', [AboutusController::class, 'show'])->name('aboutus');
