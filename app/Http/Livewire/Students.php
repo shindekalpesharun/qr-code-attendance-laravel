@@ -3,8 +3,12 @@
 namespace App\Http\Livewire;
 
 use App\Models\Classes;
+use App\Models\Lectures;
 use App\Models\Students as ModelsStudents;
+use App\Models\Subjects;
+use App\Models\Teacher;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -25,11 +29,19 @@ class Students extends Component
     public $studentAddress;
     public $studentPhoneNumber;
 
+    // subject add form
+    public $subjectName;
+    public $teacherList;
+    public $selectTeacher;
+    public $subject_list;
+
     public function mount($id)
     {
         $this->class_id = $id;
         $this->student = ModelsStudents::with('user')->where([['class_id', $this->class_id]])->get();
         $this->class = Classes::where([['id', $this->class_id]])->get();
+        $this->teacherList = Teacher::with('user')->get();
+        $this->subject_list = Subjects::where([['class_id', $this->class_id]])->get();
     }
 
     public function submit()
@@ -58,6 +70,17 @@ class Students extends Component
             'gender' => $this->studentGender,
             'address' => $this->studentAddress,
             'phone_number' => $this->studentPhoneNumber,
+        ]);
+        return redirect('class/' . $this->class_id);
+    }
+
+    public function submitSubject()
+    {
+
+        $subjects = Subjects::create([
+            'class_id' => $this->class_id,
+            'user_id' => $this->selectTeacher,
+            'subject_name' => $this->subjectName,
         ]);
         return redirect('class/' . $this->class_id);
     }

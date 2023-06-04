@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container mt-3">
     <h4>Attendance</h4>
     <table class="table">
         <thead>

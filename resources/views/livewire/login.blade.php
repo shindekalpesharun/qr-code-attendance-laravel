@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container mt-3">
     {{-- Stop trying to control. --}}
-    <h1 class="d-flex justify-content-center my-4">Login</h1>
+    <h1 class="d-flex justify-content-center">Login</h1>
     <form wire:submit.prevent="submit">
         <div class="form-group my-2">
             <label for="exampleInputEmail1">Email address</label>

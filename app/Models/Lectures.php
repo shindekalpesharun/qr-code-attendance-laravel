@@ -12,7 +12,7 @@ class Lectures extends Model
 
     protected $table = 'lectures';
 
-    protected $fillable = ['name',  'user_id', 'subject_id'];
+    protected $fillable = ['name',  'user_id', 'subject_id', 'start_time', 'end_time'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -24,4 +24,14 @@ class Lectures extends Model
         'updated_at',
         'deleted_at'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function subject()
+    {
+        return $this->belongsTo(Subjects::class);
+    }
 }

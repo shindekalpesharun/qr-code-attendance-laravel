@@ -2,8 +2,10 @@
     {{-- Success is as dangerous as failure. --}}
     <div class="d-flex justify-content-between py-4">
         <h1 class="py-2">Management</h1>
+        @if($user->user_types_id==1)
         <button type="button" class="btn btn-primary align-self-center" data-bs-toggle="modal"
             data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Add Department</button>
+        @endif
     </div>
 
     {{-- Model --}}

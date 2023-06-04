@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Teacher;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AboutusController extends Controller
+class TeacherController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,7 +36,7 @@ class AboutusController extends Controller
      */
     public function show()
     {
-        return view('web.about.about');
+        return view('web.teacher.teacher');
     }
 
     /**

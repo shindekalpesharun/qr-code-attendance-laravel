@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Subjects extends Model
+class Teacher extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'subjects';
+    protected $table = 'teacher';
 
-    protected $fillable = ['name', 'class_id', 'user_id', 'subject_name'];
+    protected $fillable = ['user_id', 'date_of_birth', 'gender', 'address', 'phone_number'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -25,13 +25,8 @@ class Subjects extends Model
         'deleted_at'
     ];
 
-    public function lecture()
+    public function user()
     {
-        return $this->hasMany(Teacher::class);
-    }
-
-    public function class()
-    {
-        return $this->belongsTo(Classes::class);
+        return $this->belongsTo(User::class);
     }
 }

@@ -15,6 +15,9 @@
                         <a class="nav-link active" aria-current="page" href="/management">Management</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/teacher">Teacher</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/students">Students</a>
                     </li>
                     {{-- <li class="nav-item">
