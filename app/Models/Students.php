@@ -12,7 +12,7 @@ class Students extends Model
 
     protected $table = 'students';
 
-    protected $fillable = ['name', 'class_id', 'user_id', 'date_of_birth', 'gender', 'address', 'phone_number'];
+    protected $fillable = ['name', 'class_id', 'user_id', 'date_of_birth', 'gender', 'address', 'phone_number', 'permanent_registration_number'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -29,9 +29,19 @@ class Students extends Model
     {
         return $this->belongsTo(Classes::class);
     }
-    
+
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function subject()
+    {
+        return $this->hasMany(Subjects::class, 'user_id');
+    }
+
+    public function attendances()
+    {
+        return $this->hasMany(Attendance::class, 'user_id', 'user_id');
     }
 }

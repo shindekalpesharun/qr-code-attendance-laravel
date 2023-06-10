@@ -11,11 +11,12 @@ class Home extends Component
 {
     public $latestAttendance;
 
-
     public function mount()
     {
-        $this->latestAttendance = Attendance::with(['user', 'student.class.department'])
+        $this->latestAttendance = Attendance::with(['user', 'student.class.department', 'lectures.subject'])
             ->orderByDesc('created_at')
+            ->distinct('created_at')
+            ->where([['status', 'Present']])
             ->get();
     }
 

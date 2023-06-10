@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('class_id')->unsigned()->index();
             $table->unsignedBigInteger('user_id')->unsigned()->index();
             $table->date('date_of_birth');
+            $table->string('permanent_registration_number');
             $table->string('gender');
             $table->string('address');
             $table->string('phone_number');

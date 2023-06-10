@@ -30,7 +30,7 @@
                                 placeholder="Date Of Birth" required />
 
                             <select class="form-select my-2" wire:model.defer="teacherGender"
-                                aria-label="Default select example">
+                                aria-label="Default select example" required>
 
                                 <option selected>Gender</option>
                                 <option value="Male" selected>Male</option>

@@ -4,6 +4,7 @@
         <thead>
             <tr>
                 <th>Name</th>
+                <th>Subject</th>
                 <th>Class</th>
                 <th>Department</th>
                 <th>Date</th>
@@ -14,14 +15,15 @@
             @foreach ($latestAttendance as $index => $item)
             <tr>
                 <td>{{$item['user']['name']}}</td>
+                <td>{{$item['lectures']['subject']['subject_name']}}</td>
                 <td>{{$item['student']['class']['name']}}</td>
                 <td>{{$item['student']['class']['department']['name']}}</td>
                 <td>{{$item['created_at']->format('d-m-Y')}}</td>
                 <td>Present</td>
             </tr>
             @endforeach
-            {{-- {{ $latestAttendance->links() }} --}}
-
         </tbody>
     </table>
+
+    {{-- {{$latestAttendance}} --}}
 </div>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Report\ReportController;
 use App\Http\Controllers\StudentsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,8 +31,6 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         return $request->user();
     });
     Route::get('/profile', [StudentsController::class, 'profile']);
-    Route::get('/attendance', [AttendanceController::class, 'create']);
-    // Route::resource('carts', CartsController::class);
-    // Route::resource('orders', OrdersController::class);
-    // Route::resource('review', ReviewsController::class);
+    Route::post('/attendance', [AttendanceController::class, 'create']);
+    Route::get('/report', [ReportController::class, 'index']);
 });

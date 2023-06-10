@@ -24,10 +24,10 @@
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Add Class:</label>
-                            <input type="text" wire:model.defer="className" class="form-control" id="recipient-name" />
+                            <input type="text" wire:model.defer="className" class="form-control" id="recipient-name" required/>
                         </div>
                         <select class="form-select my-2" wire:model.defer="selectedTeacher"
-                            aria-label="Default select example">
+                            aria-label="Default select example" required>
                             <option selected>Select Teacher</option>
                             @foreach ($teacher_list as $item)
                             <option value="{{$item['user']['id']}}" selected>{{$item['user']['name']}}</option>

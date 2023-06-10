@@ -8,6 +8,16 @@
         @endif
     </div>
 
+    @if(count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     {{-- Model --}}
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -21,7 +31,7 @@
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Add Department:</label>
                             <input type="text" wire:model.defer="departmentName" class="form-control"
-                                id="recipient-name">
+                                id="recipient-name" required>
                         </div>
 
                     </div>

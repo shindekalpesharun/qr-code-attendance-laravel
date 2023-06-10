@@ -12,7 +12,7 @@ class Attendance extends Model
 
     protected $table = 'attendances';
 
-    protected $fillable = ['user_id'];
+    protected $fillable = ['user_id', 'lectures_id', 'status'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -32,5 +32,10 @@ class Attendance extends Model
     public function student()
     {
         return $this->hasOne(Students::class, 'user_id', 'user_id');
+    }
+
+    public function lectures()
+    {
+        return $this->belongsTo(Lectures::class);
     }
 }

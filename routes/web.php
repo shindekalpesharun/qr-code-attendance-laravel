@@ -11,6 +11,7 @@ use App\Http\Controllers\SingleStudentProfileController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\Teacher\SingleTeacherController;
 use App\Http\Controllers\Teacher\TeacherController;
+use App\Http\Controllers\Report\ReportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +43,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/teacher/{id}', [SingleTeacherController::class, 'show'])->name('singlestudentprofile');
 
     Route::get('/lecture/{id}', [LecturesController::class, 'show'])->name('singlestudentprofile');
+
+    // report
+    Route::get('/report', [ReportController::class, 'show'])->name('singlestudentprofile');
 });
 
 

@@ -27,11 +27,16 @@ class Subjects extends Model
 
     public function lecture()
     {
-        return $this->hasMany(Teacher::class);
+        return $this->hasMany(Lectures::class, 'subject_id');
     }
 
     public function class()
     {
         return $this->belongsTo(Classes::class);
+    }
+
+    public function student()
+    {
+        return $this->belongsTo(Students::class, 'user_id');
     }
 }

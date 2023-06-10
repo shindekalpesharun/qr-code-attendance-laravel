@@ -17,12 +17,12 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/teacher">Teacher</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/students">Students</a>
-                    </li>
                     {{-- <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/report">Report</a>
+                        <a class="nav-link active" aria-current="page" href="/students">Students</a>
                     </li> --}}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/report">Report</a>
+                    </li>
                     @endauth
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/about">About us</a>

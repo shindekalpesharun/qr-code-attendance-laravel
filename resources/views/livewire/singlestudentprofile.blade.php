@@ -1,12 +1,13 @@
 <div class="container">
     <h1 class="my-4">hi {{$student[0]['user']['name']}}</h1>
-
+    
     <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <h4>Profile Information</h4>
                 <ul class="list-unstyled">
                     <li><strong>Name:</strong> {{$student[0]['user']['name']}}</li>
+                    <li><strong>PRN:</strong> {{$student[0]['permanent_registration_number']}}</li>
                     <li><strong>Email:</strong> {{$student[0]['user']['email']}}</li>
                     <li><strong>Date of Birth:</strong> {{$student[0]['date_of_birth']}}</li>
                     <li><strong>Gender:</strong> {{$student[0]['gender']}}</li>

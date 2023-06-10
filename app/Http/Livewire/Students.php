@@ -28,6 +28,7 @@ class Students extends Component
     public $studentGender;
     public $studentAddress;
     public $studentPhoneNumber;
+    public $permanent_registration_number;
 
     // subject add form
     public $subjectName;
@@ -66,6 +67,7 @@ class Students extends Component
         $student = ModelsStudents::create([
             'class_id' => $this->class_id,
             'user_id' => $user->id,
+            'permanent_registration_number' => $this->permanent_registration_number,
             'date_of_birth' => $this->studentDOB,
             'gender' => $this->studentGender,
             'address' => $this->studentAddress,

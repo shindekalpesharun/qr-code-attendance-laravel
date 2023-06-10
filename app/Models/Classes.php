@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Http\Livewire\Subject\Subject;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -33,11 +32,11 @@ class Classes extends Model
 
     public function students()
     {
-        return $this->hasMany(Students::class);
+        return $this->hasMany(Students::class, 'class_id');
     }
 
     public function subject()
     {
-        return $this->hasMany(Subject::class);
+        return $this->hasMany(Subjects::class, 'class_id');
     }
 }

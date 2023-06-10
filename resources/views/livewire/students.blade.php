@@ -37,11 +37,13 @@
                                 id="studentEmail" placeholder="email" required />
                             <input type="text" wire:model.defer="studentPassword" class="form-control my-2"
                                 id="studentPassword" placeholder="password" required />
+                            <input type="text" wire:model.defer="permanent_registration_number" class="form-control my-2"
+                                id="permanent_registration_number" placeholder="PRN" required />
                             <input type="date" wire:model.defer="studentDOB" class="form-control my-2" id="studentDOB"
                                 placeholder="Date Of Birth" required />
 
                             <select class="form-select my-2" wire:model.defer="studentGender"
-                                aria-label="Default select example">
+                                aria-label="Default select example" required>
 
                                 <option selected>Gender</option>
                                 <option value="Male" selected>Male</option>
@@ -142,7 +144,7 @@
     <ul class="list-group py-4">
         @foreach ($student as $item)
         <li class="list-group-item d-flex justify-content-between align-items-center">
-            <a href="/student/{{$item->id}}"
+            <a href="/student/{{$item->user_id}}"
                 class="link-underline link-underline-opacity-0">{{$item['user']['name']}}</a>
 
             {{-- <button wire:click="delete({{ $item->id }})" type=" button" class="btn btn-danger">
