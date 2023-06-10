@@ -33,6 +33,11 @@ class Classes extends Component
         // $this->validate([
         //     'className' => 'required|string',
         // ]);
+        if (
+            !isset($this->className) || !isset($this->selectedTeacher) || !isset($this->class_id)
+        ) {
+            return redirect('department/' . $this->class_id)->with('error', 'An error occurred.');
+        }
 
         $user = ModelsClasses::create([
             'name' => $this->className,

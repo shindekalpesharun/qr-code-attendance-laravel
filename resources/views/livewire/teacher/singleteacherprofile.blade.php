@@ -37,6 +37,12 @@
         </div>
     </div>
 
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+
     {{-- Add Lecture --}}
     <div class="my-2">
         <h2>Lectures</h2>

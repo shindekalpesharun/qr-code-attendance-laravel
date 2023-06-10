@@ -25,6 +25,13 @@ class Teacher extends Component
     }
     public function submit()
     {
+        if (
+            !isset($this->teacherName) || !isset($this->teacherEmail) || !isset($this->teacherPassword) ||
+            !isset($this->teacherBOD) || !isset($this->teacherGender) || !isset($this->teacherAddress) ||
+            !isset($this->teacherPhoneNumber)
+        ) {
+            return redirect('teacher')->with('error', 'An error occurred.');
+        }
         $user = User::create([
             'name' => $this->teacherName,
             'email' => $this->teacherEmail,

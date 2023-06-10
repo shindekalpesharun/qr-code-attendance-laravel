@@ -16,12 +16,18 @@ class Signup extends Component
 
     public function submit()
     {
+
         $this->validate([
             'name' => 'required|string',
             'email' => 'required|email',
             // TODO: password length increase
             'password' => 'required|min:1',
         ]);
+        if (
+            !isset($this->name) || !isset($this->email) || !isset($this->password)
+        ) {
+            return;
+        }
 
         $user = User::create([
             'name' => $this->name,

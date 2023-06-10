@@ -39,18 +39,6 @@ class Singleteacherprofile extends Component
         $this->teacher = Teacher::with('user')->where([['id', $this->teacher_id]])->get();
         $this->departments = Departments::all();
         $this->lecturesList = Lectures::with('subject.class.department')->where([['user_id', $this->teacher[0]->user_id]])->get();
-
-
-        // $this->debug = Students::with('class.subject.lecture.attendances')->get();
-
-        // $this->debug = Attendance::with('user')->get();
-
-        // $this->class = Classes::where([['id', $this->class_id]])->get();
-        // $this->studentAttendance = Attendance::where([['user_id', $this->student[0]['user_id']]])->orderByDesc('created_at')->get();
-        // $this->monthCount = Attendance::selectRaw('DATE_FORMAT(created_at, "%m %Y") as month, COUNT(*) as count')
-        //     ->groupBy('month')
-        //     ->orderBy('month', 'ASC')
-        //     ->get();
     }
 
     public function updatedselectedDepartment()
@@ -62,13 +50,16 @@ class Singleteacherprofile extends Component
     public function updatedselectedClass()
     {
         $this->subject = Subjects::where([['class_id', $this->selectedClass], ['user_id', $this->teacher[0]->user_id]])->get();
-
-        // $this->debug = Students::where([['class_id', $this->selectedClass]])->get();
     }
 
     public function submit()
     {
-
+        if (
+            !isset($this->teacher[0]->user_id) || !isset($this->selectedSubject) || !isset($this->startTime) ||
+            !isset($this->endTime)
+        ) {
+            return redirect('teacher/' . $this->teacher_id)->with('error', 'An error occurred.');
+        }
         DB::transaction(function () {
             $lectures = Lectures::create([
                 'user_id' => $this->teacher[0]->user_id,

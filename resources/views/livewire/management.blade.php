@@ -8,13 +8,9 @@
         @endif
     </div>
 
-    @if(count($errors) > 0)
+    @if (session('error'))
         <div class="alert alert-danger">
-            <ul>
-                @foreach($errors as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+            {{ session('error') }}
         </div>
     @endif
 

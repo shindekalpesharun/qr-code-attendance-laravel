@@ -5,6 +5,12 @@
             data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Add Teacher</button>
     </div>
 
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+
     {{-- Model --}}
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">

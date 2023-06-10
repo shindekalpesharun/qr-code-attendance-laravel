@@ -13,8 +13,6 @@ class Management extends Component
     public $departmentName;
     public $departments;
 
-    public $errors = [];
-
     public function mount()
     {
         $this->departments = Departments::all();
@@ -23,24 +21,16 @@ class Management extends Component
 
     public function submit()
     {
-        // $this->validate([
-        //     'departmentName' => 'required|string',
-        // ]);
-        try {
-            // $this->validate([
-            //     'departmentName' => 'required|string',
-            // ]);
-
-            $user = Departments::create([
-                'name' => $this->departmentName,
-            ]);
-            // return redirect('management/' . $this->class_id);
-            return redirect()->route('management');
-
-            // Validation passed, continue with your logic here
-        } catch (ValidationException $e) {
-            $this->errors = $e->validator->errors()->toArray();
+        // validation custom
+        if (!isset($this->departmentName)) {
+            return redirect()->route('management')->with('error', 'An error occurred.');
         }
+
+        $user = Departments::create([
+            'name' => $this->departmentName,
+        ]);
+        // return redirect('management/' . $this->class_id);
+        return redirect()->route('management');
     }
 
     public function render()

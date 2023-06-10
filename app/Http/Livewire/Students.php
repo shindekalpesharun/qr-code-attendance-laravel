@@ -56,6 +56,14 @@ class Students extends Component
         //     'studentAddress' => 'required',
         //     'studentPhoneNumber' => 'required'
         // ]);
+        // validation custom
+        if (
+            !isset($this->studentName) || !isset($this->studentEmail) || !isset($this->studentPassword) ||
+            !isset($this->class_id) || !isset($this->permanent_registration_number) || !isset($this->studentDOB) ||
+            !isset($this->studentGender) || !isset($this->studentAddress) || !isset($this->studentPhoneNumber)
+        ) {
+            return redirect('class/' . $this->class_id)->with('error', 'An error occurred.');
+        }
 
         $user = User::create([
             'name' => $this->studentName,
@@ -78,7 +86,11 @@ class Students extends Component
 
     public function submitSubject()
     {
-
+        if (
+            !isset($this->class_id) || !isset($this->selectTeacher) || !isset($this->subjectName)
+        ) {
+            return redirect('class/' . $this->class_id)->with('error', 'An error occurred.');
+        }
         $subjects = Subjects::create([
             'class_id' => $this->class_id,
             'user_id' => $this->selectTeacher,
