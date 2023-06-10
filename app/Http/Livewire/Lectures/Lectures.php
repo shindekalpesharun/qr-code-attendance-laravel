@@ -23,7 +23,7 @@ class Lectures extends Component
         $this->lecture_details = ModelsLectures::with('subject.class.department')->where([['id', $this->lecture_id]])->get();
         $this->start_time = $this->lecture_details[0]->start_time;
         $this->end_time = $this->lecture_details[0]->end_time;
-        $this->attendances = Attendance::with('lectures', 'user')->where([['lectures_id', $this->lecture_id]])->get();
+        $this->attendances = Attendance::with('lectures', 'user')->where([['lectures_id', $this->lecture_id], ['status', 'Present']])->get();
 
         $start = Carbon::parse($this->start_time); // Replace with your start datetime
         $end = Carbon::parse($this->end_time); // Replace with your end datetime
