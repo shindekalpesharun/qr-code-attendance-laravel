@@ -50,7 +50,12 @@
         @foreach ($departments as $item)
         <li class="list-group-item d-flex justify-content-between align-items-center">
             <a href="/department/{{$item->id}}" class="link-underline link-underline-opacity-0">{{$item->name}}</a>
-
+            
+            @if($user->user_types_id==1)
+            <button wire:click="delete({{ $item->id }})" type=" button" class="btn btn-danger">
+                delete
+            </button>
+            @endif      
 
         </li>
         @endforeach

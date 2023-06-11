@@ -58,7 +58,7 @@
                             <input type="text" wire:model.defer="studentAddress" class="form-control my-2"
                                 id="studentAddress" placeholder="Address" required />
                             <input type="text" wire:model.defer="studentPhoneNumber" class="form-control my-2"
-                                id="studentPhoneNumber" placeholder="Phone Number" required />
+                                id="studentPhoneNumber" placeholder="Phone Number" required  maxlength="10"/>
                             {{-- <div class="mb-3">
                                 <label for="formFile" class="form-label">Default file input example</label>
                                 <input wire:model.defer="studentProfile" class="form-control" type="file"

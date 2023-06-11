@@ -33,6 +33,12 @@ class Management extends Component
         return redirect()->route('management');
     }
 
+    public function delete($deleteid)
+    {
+        $user = Departments::find($deleteid)->delete();
+        return redirect('management/');
+    }
+
     public function render()
     {
         return view('livewire.management');

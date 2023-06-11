@@ -13,8 +13,11 @@ class ReportController extends Controller
      */
     public function index(Request $request)
     {
-        return Students::with('attendances', 'user', 'class.department', 'class.subject')
+        return Students::with(['attendances.lectures.subject', 'attendances' => function ($query) {
+            $query->orderByDesc('id');
+        }, 'user', 'class.department', 'class.subject'])
             ->where('user_id', $request->user()->user_types_id)
+            ->orderByDesc('id')
             // ->whereHas('class.department', function ($query) {
             //     $query->where('id', $this->selectedDepartment);
             // })
